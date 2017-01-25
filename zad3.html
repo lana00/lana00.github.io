@@ -170,6 +170,53 @@ e--;}
 }
   
 </script>
+<script>
+  function er7() {
+  var g=0;
+  var w=0;
+var fruits = ["Яблоко", "Апельсин", "Слива", "банан", "груша"];
+var e=4;
+var taras;
+for (;e>=0;){
+l='i'+e;
+fruits[e]= document.getElementById(l).value;
+e--;}
+e=4;
+document.getElementById('p0').innerHTML =""
+
+for (;e>=0;){
+ 
+  if (fruits[e] % 2 == 1){ 
+    w++;}
+
+e--;}
+ document.getElementById('p0').innerHTML = document.getElementById('p0').innerHTML +" "+w; 
+}
+</script>
+<script>
+  function er8 (){
+  var g=0;
+  var w=0;
+var fruits = ["Яблоко", "Апельсин", "Слива", "банан", "груша"];
+var e=4;
+var taras;
+for (;e>=0;){
+l='i'+e;
+fruits[e]= document.getElementById(l).value;
+e--;}
+e=4;
+document.getElementById('p0').innerHTML =""
+
+for (;e>=0;){
+ 
+  if (fruits[e] >0){
+    g=g+Number(fruits[e]);
+    w++;}
+
+e--;}
+ document.getElementById('p0').innerHTML = document.getElementById('p0').innerHTML +" "+g/w; 
+}
+</script>
 
 <br>
 <br>
@@ -191,10 +238,8 @@ e--;}
 <br>
 <a href="#on" class="button15" onclick="er5()" >Array</a>
 <a href="#on" class="button15" onclick="er6()" >Array2</a>
-<br>
-<br>
- 
-
+<a href="#on" class="button15" onclick="er7()" >Array3</a>
+<a href="#on" class="button15" onclick="er8()" >Array4</a>
 <br>
 
 
