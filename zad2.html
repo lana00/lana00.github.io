@@ -133,6 +133,153 @@ document.getElementById('p0').innerHTML = document.getElementById('p0').innerHTM
 e--;}}
    
 </script>
+  
+  <style>
+p0 {font-size: 4em; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; color: #ddcca3;}
+p1 {font-size: 4em; text-shadow: 4px 2px black; color: #ece2ca;}
+p2 {font-size: 4em; text-shadow: 0 2px 2px rgba(0, 0, 30, 0.6); color: rgba(102, 0, 102, 0.5);}
+p4 {font-size: 4em; text-shadow: 0 2px 2px rgba(0, 0, 30, 0.6); color: rgba(102, 0, 102, 0.5);}
+
+a.button15 {
+  display: inline-block;
+  font-family: arial,sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(68,68,68);
+  text-decoration: none;
+  user-select: none;
+  padding: .2em 1.2em;
+  outline: none;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 2px;
+  background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
+  transition: all .218s ease 0s;
+}
+a.button15:hover {
+  color: rgb(24,24,24);
+  border: 1px solid rgb(198,198,198);
+  background: #f7f7f7 linear-gradient(#f7f7f7, #f1f1f1);
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+a.button15:active {
+  color: rgb(51,51,51);
+  border: 1px solid rgb(204,204,204);
+  background: rgb(238,238,238) linear-gradient(rgb(238,238,238), rgb(224,224,224));
+  box-shadow: 0 1px 2px rgba(0,0,0,.1) inset;
+}
+</style>
+
+<p0 id="p0">Муки ИРЫ</p0>
+<script>
+ function e2 (){
+       document.getElementById('p0').innerHTML =""
+         var sum = 0;
+  var n;
+   n = document.getElementById('i0').value;
+     for (var i = 1; i <= n; i++) {
+       sum =sum+ i;
+  }
+  document.getElementById('p0').innerHTML =sum
+ }
+
+
+</script>
+
+<br>
+<br>
+
+
+<br>
+<input value="" id="i0" type="text">
+<br>
+<br>
+<a href="#on" class="button15" onclick="e2()" >Array</a>
+<br>
+
+
+<p0 id="p1">Муки ИРЫ</p0>
+<script>
+ function e3 (){
+ document.getElementById('p1').innerHTML =""
+  var n;
+  var taras=0;
+  n = document.getElementById('i1').value;
+n = n * n;
+taras= Math.pow(2,n);
+  document.getElementById('p1').innerHTML = taras - 1;
+ }
+
+
+</script>
+
+<br>
+<br>
+
+
+<br>
+<input value="" id="i1" type="text">
+<br>
+<br>
+<a href="#on" class="button15" onclick="e3()" >Array</a>
+<br>
+
+<p0 id="p2">Муки ИРЫ</p0>
+<script>
+ function e4 (){
+       document.getElementById('p2').innerHTML =""
+       var n;
+         var a = "y";
+    b = "x";
+    n = document.getElementById('i2').value;
+  for (var i = 3; i <= n; i++) {
+    var c = a + b;
+    a = b;
+    b = c;
+  }
+  document.getElementById('p2').innerHTML = b
+ }
+
+
+</script>
+
+<br>
+<br>
+
+
+<br>
+<input value="" id="i2" type="text">
+<br>
+<br>
+<a href="#on" class="button15" onclick="e4()" >Array</a>
+<br>
+<p0 id="p3">Муки ИРЫ</p0>
+<script>
+ function e5 (){
+       document.getElementById('p3').innerHTML =""
+       var R;
+       var a;
+    R = document.getElementById('i3').value;
+    a = document.getElementById('i4').value;
+    var S = (3.14 * R * R * a) / 360 * (3.14/ 180);
+    var m = Math.pow(10,4);
+    var b = Math.round(S*m)/m;
+  document.getElementById('p3').innerHTML = b;
+ }
+
+
+</script>
+
+<br>
+<br>
+
+
+<br>
+<input value="" id="i3" type="text">
+<br>
+<input value="" id="i4" type="text">
+<br>
+<br>
+<a href="#on" class="button15" onclick="e5()" >Array</a>
 <br>
 <br>
 
