@@ -102,7 +102,7 @@ a.button15:active {
 }
 </style>
 
-<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
@@ -123,14 +123,14 @@ a.button15:active {
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
+
  </select>
   <br>
 <p id="value1">1</p>
 <p id="value2">2</p>
 <p id="value3">3</p>
-<script>
+<p id="value4">4</p>
 
-</script>
 <script>
 function er1 (){
 
@@ -144,14 +144,64 @@ g= snap[e];
   	document.getElementById("value1").innerHTML = g.name;
   	document.getElementById("value2").innerHTML = g.birthday;
   	document.getElementById("value3").innerHTML = g.mail;
+  	document.getElementById("value4").innerHTML = g.ab;
 });
+}
+</script>
+<script>
+function er2 (){
+document.getElementById("p0").innerHTML="";
+var e =  document.getElementById("i0").value;
+var l;
+var s=0;
+for (var j = 1;j<=e*3;){
+l='i'+j;
+s ="<br>"+ "<p0"+" " +"id="+l+">"+j+"</p0>";
+	document.getElementById("p0").innerHTML=document.getElementById("p0").innerHTML+ s;
+j++;}
+}
+</script>
+<script>
+function er3 (){
+er2 ();
+var e =  document.getElementById("i0").value;
+var a = firebase.database().ref('/guys');
+a.on('value', function(snapshot) {
+var snap = snapshot.val();
+var g 
+for (var j = 1;j<=e*3;){
+  for (var ij = 1;ij<=e;){
+g= snap[ij];
+ij++;
+l='i'+j;
+  	document.getElementById(l).innerHTML = g.name;
+  	l='i'+(j+1);
+  	document.getElementById(l).innerHTML = g.birthday;
+  	l='i'+(j+2);
+  	document.getElementById(l).innerHTML = g.mail;
+  	l='i'+(j+3);
+  	document.getElementById(l).innerHTML = g.ab+"<br>";
+  	j=j+4;
+  	document.getElementById(l).innerHTML = document.getElementById(l).innerHTML+"<br>";
+}}});
 }
 </script>
 <br>
 <br>
-<a href="#on" class="button15" onclick="er1()" >PushMe</a>
+<a href="#on" class="button15" onclick="er1()" >Work It</a>
 <br>
+<br>
+Введите количество полей для вывода
+<input value="4" id="i0" type="text">
+<br>
+<a href="#on" class="button15" onclick="er2()" >Make It</a>
+<br> <p0 id="p0"></p0>
+<br> 
+<a href="#on" class="button15" onclick="er3()" >Do It</a>
 <br>
 
+<br>
+<br>
 </body>
 </html>
+
