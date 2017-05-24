@@ -39,7 +39,8 @@ a.button15:active {
 }
 </style>
 
-<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
@@ -52,83 +53,61 @@ a.button15:active {
   };
   firebase.initializeApp(config);
 </script>
- Надпись
- 
-<select id="to1">
-<option></option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
 
- </select>
+  <script>
+    function er1() {
+      firebase.database().ref("guys/" + document.getElementById("id_value").value).set(document.getElementById("id_value").value);
+      firebase.database().ref("guys/" + document.getElementById("id_value").value + "/name").set(document.getElementById("name_value").value);
+      firebase.database().ref("guys/" + document.getElementById("id_value").value + "/secondname").set(document.getElementById("secondname_value").value);
+      firebase.database().ref("guys/" + document.getElementById("id_value").value + "/lastname").set(document.getElementById("lastname_value").value);
+      firebase.database().ref("guys/" + document.getElementById("id_value").value + "/footsize").set(document.getElementById("footsize_value").value);
+      firebase.database().ref("guys/" + document.getElementById("id_value").value + "/url").set(document.getElementById("url_value").value);
+      firebase.database().ref("guys/" + document.getElementById("id_value").value + "/password").set(document.getElementById("password_value").value);
+      
+    
+      
+    
+    }
+
+    function er2() {
+      var b = document.getElementById("id_show").value
+      var a = firebase.database().ref('/guys');
+      a.on('value', function(snapshot) {
+        var snap = snapshot.val();
+        var g = snap[b];
+        document.getElementById("inf").innerHTML ="ИД: " + b + "<br> Имя: " + g.name + "<br> Пароль: " + g.password + "<br> Фамилия: " + g.secondname + "<br> Отчество: " + g.lastname + "<br> Размер ноги: " + g.footsize +"<br Фото: > <img src=" + g.url + ">";
+      });
+    }
+  </script>
+
+  ID
+  <input type="text" class="form-control" id="id_value" placeholder="" value="1" />
+  <br> name
+  <input type="text" class="form-control" id="name_value" placeholder="" value="alice" />
+  <br> secondname
+  <input type="text" class="form-control" id="secondname_value" placeholder="" value="follow" />
+  <br> lastname
+  <input type="text" class="form-control" id="lastname_value" placeholder="" value="whiterabbit" />
+  <br> footsize
+  <input type="text" class="form-control" id="footsize_value" placeholder="" value="37" />
+  <br> img
+  <input type="text" class="form-control" id="url_value" placeholder="" value="https://pp.userapi.com/c836126/v836126600/3e4d8/qiF0QnHMfX8.jpg" />
   <br>
-<p id="value1">1</p>
-<p id="value2">2</p>
-<p id="value3">3</p>
-<p id="value4">4</p>
+  password
+  <input type="password" class="form-control" id="password_value" placeholder="" value="555" />
+  <br>
+  <a href="#on" class="button15" onclick="er1()">Добавить </a>
+  <br>
+  <br> ID
+  <input value="1" id="id_show" type="text" />
+  <br>
+  <br>
+  <a href="#on" class="button15" onclick="er2()">Вывести </a>
+  <br>
 
-<script>
-function er1 (){
+	<div id="inf"></div>
 
-var yourSelect = document.getElementById( "to1" );
-e= yourSelect.options[ yourSelect.selectedIndex ].value;
-var a = firebase.database().ref('/guys');
-a.on('value', function(snapshot) { 
-var snap = snapshot.val();
-var g 
-g= snap[e];
-  	document.getElementById("value1").innerHTML = g.name;
-  	document.getElementById("value2").innerHTML = g.birthday;
-  	document.getElementById("value3").innerHTML = g.mail;
-  	document.getElementById("value4").innerHTML = g.ab;
-});
-}
-</script>
-<script>
-function er2 (){
-document.getElementById("p0").innerHTML="";
-var e =  document.getElementById("i0").value;
-var l;
-var s=0;
-for (var j = 1;j<=e*3;){
-l='i'+j;
-s ="<br>"+ "<p0"+" " +"id="+l+">"+j+"</p0>";
-	document.getElementById("p0").innerHTML=document.getElementById("p0").innerHTML+ s;
-j++;}
-}
-</script>
-<script>
-function er3 (){
-er2 ();
-var e =  document.getElementById("i0").value;
-var a = firebase.database().ref('/guys');
-a.on('value', function(snapshot) {
-var snap = snapshot.val();
-var g 
-for (var j = 1;j<=e*3;){
-  for (var ij = 1;ij<=e;){
-g= snap[ij];
-ij++;
-l='i'+j;
-  	document.getElementById(l).innerHTML = g.name;
-  	l='i'+(j+1);
-  	document.getElementById(l).innerHTML = g.birthday;
-  	l='i'+(j+2);
-  	document.getElementById(l).innerHTML = g.mail;
-  	l='i'+(j+3);
-  	document.getElementById(l).innerHTML = g.ab+"<br>";
-  	j=j+4;
-  	document.getElementById(l).innerHTML = document.getElementById(l).innerHTML+"<br>";
-}}});
-}
-</script>
+
 <br>
 <br>
 <a href="#on" class="button15" onclick="er1()" >Work It</a>
