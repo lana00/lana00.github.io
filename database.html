@@ -69,6 +69,10 @@ a.button15:active {
     
     }
 
+    function er3() {
+        document.getElementById("inf").innerHTML ="";
+ 
+    }
     function er2() {
       var b = document.getElementById("id_show").value
       var a = firebase.database().ref('/guys');
@@ -104,7 +108,7 @@ a.button15:active {
   <br>
   <a href="#on" class="button15" onclick="er2()">Вывести </a>
   <br>
-
+<a href="#on" class="button15" onclick="er3()">Сотри </a>
   <div id="inf"></div>
 
 
